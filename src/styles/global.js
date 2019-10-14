@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -14,6 +15,9 @@ export default createGlobalStyle`
 
   html,body,#root {
     height: 100vh;
+    @media (max-width: 720px) {
+      font-size: 14px;
+    }
   }
 
   body {
@@ -21,8 +25,8 @@ export default createGlobalStyle`
   }
 
 body, input, button {
-  font-family: 'Helvetica','Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell,'Helvetica','Segoe UI',  'Open Sans', sans-serif;
+  letter-spacing: 0.02rem;
 
 }
 
