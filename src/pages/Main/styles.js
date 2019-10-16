@@ -104,6 +104,7 @@ export const About = styled.div`
     color: #aab8ff;
     font-size: 2em;
     font-weight: normal;
+    margin-bottom: 20px;
 
     background: 0;
     border: 0;
@@ -111,8 +112,9 @@ export const About = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
     img {
-      margin-top: 10px;
+      margin-top: 20px;
       animation: ${chevronAnimation} 2s ease-in-out infinite;
       width: 50px;
     }
@@ -138,9 +140,10 @@ export const About = styled.div`
 
       > button {
         margin: 0;
-        font-size: 1.5em;
+        min-width: 200px;
 
         span {
+          font-size: 1.3em;
           text-align: left;
           flex: 1;
         }
@@ -190,14 +193,13 @@ export const Project = styled.div`
     max-width: 1200px;
     section {
       align-self: stretch;
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
       color: #fff;
       width: 100%;
-      min-width: 40vw;
+
       padding-right: 30px;
       h2 {
         color: #ff595e;
@@ -263,6 +265,7 @@ export const Project = styled.div`
       justify-content: center;
       align-items: center;
       button {
+        width: 80%;
         background: rgba(0, 0, 0, 0.8);
         border: 0;
         img {
@@ -379,10 +382,17 @@ export const CarouselOverlay = styled.div`
     height: 10vh;
     border-radius: 50%;
     border: 0;
-    background: #000;
+    background: #012;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     color: #fff;
     font-size: 2em;
+    &:hover {
+      background: #081828;
+    }
   }
 
   > div {

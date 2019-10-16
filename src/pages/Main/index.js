@@ -6,6 +6,7 @@ import {
   FaEnvelope,
   FaFilePdf,
   FaGlobe,
+  FaTimes,
 } from 'react-icons/fa';
 
 import Slider from 'react-slick';
@@ -115,7 +116,7 @@ export default function Main() {
       {showCarousel && (
         <CarouselOverlay>
           <button type="button" onClick={() => setShowCarousel(false)}>
-            X
+            <FaTimes size={45} color="#fff" />
           </button>
           <div className="carouselContainer">
             <Slider dots>
