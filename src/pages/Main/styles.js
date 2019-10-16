@@ -18,22 +18,22 @@ const chevronAnimation = keyframes`
 
 const buttonHoverAnimation = keyframes`
   0% {
-    background: linear-gradient(90deg, #2b55d5 99%, #be24fc 100%);
+    background: linear-gradient(-90deg, #2b55d5 99%, #be24fc 100%);
   }
   10% {
-    background: linear-gradient(90deg, #2b55d5 80%, #be24fc 100%);
+    background: linear-gradient(-90deg, #2b55d5 80%, #be24fc 100%);
   }
   25% {
-    background: linear-gradient(90deg, #2b55d5 60%, #be24fc 100%);
+    background: linear-gradient(-90deg, #2b55d5 60%, #be24fc 100%);
   }
   60% {
-    background: linear-gradient(90deg, #2b55d5 40%, #be24fc 100%);
+    background: linear-gradient(-90deg, #2b55d5 40%, #be24fc 100%);
   }
   80% {
-    background: linear-gradient(90deg, #2b55d5 20%, #be24fc 100%);
+    background: linear-gradient(-90deg, #2b55d5 20%, #be24fc 100%);
   }
   100% {
-    background: linear-gradient(90deg, #2b55d5 0%, #be24fc 100%);
+    background: linear-gradient(-90deg, #2b55d5 0%, #be24fc 100%);
   }
 `;
 
@@ -177,7 +177,7 @@ export const Project = styled.div`
     right: 0;
     left: 0;
     height: 16px;
-    background: linear-gradient(90deg, #2b55d5, #be24fc);
+    background: linear-gradient(-90deg, #2b55d5, #be24fc);
   }
 
   main {
@@ -212,6 +212,7 @@ export const Project = styled.div`
       width: 100%;
       height: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       button {
@@ -238,6 +239,26 @@ export const Project = styled.div`
             color: #bbb;
             font-size: 1em;
           }
+        }
+      }
+      .techs {
+        list-style: none;
+        align-self: center;
+        flex: 1;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        margin: 10px -10px 0;
+        li {
+          text-align: center;
+          color: #aab8ff;
+          opacity: 0.7;
+          padding: 2px 4px;
+          border-radius: 4px;
+          margin: 0 5px 5px;
         }
       }
     }
@@ -288,26 +309,6 @@ export const Project = styled.div`
         }
       }
     }
-    .techs {
-      list-style: none;
-      align-self: center;
-      flex: 1;
-
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-
-      margin: 0 -10px;
-      li {
-        text-align: center;
-        color: #aab8ff;
-        opacity: 0.7;
-        padding: 2px 4px;
-        border-radius: 4px;
-        margin: 0 5px 5px;
-      }
-    }
   }
   @media (max-width: 1000px) {
     main {
@@ -320,9 +321,6 @@ export const Project = styled.div`
         }
         p {
           margin-bottom: 20px;
-        }
-        .techs {
-          margin: 0 0 20px;
         }
       }
     }

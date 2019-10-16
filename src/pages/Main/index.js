@@ -86,6 +86,10 @@ export default function Main() {
                     <p>Click to see more images</p>
                   </div>
                 </button>
+                <ul className="techs">
+                  {project.techs &&
+                    project.techs.map(tech => <li key={tech}>{tech}</li>)}
+                </ul>
               </aside>
             </main>
 
@@ -105,10 +109,6 @@ export default function Main() {
                     </a>
                   </li>
                 ) : null}
-              </ul>
-              <ul className="techs">
-                {project.techs &&
-                  project.techs.map(tech => <li key={tech}>{tech}</li>)}
               </ul>
             </footer>
           </div>
