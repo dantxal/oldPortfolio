@@ -184,14 +184,20 @@ export const Project = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: center;
     margin: 30px;
+    width: fit-content;
+    max-width: 1200px;
     section {
+      align-self: stretch;
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
       color: #fff;
       width: 100%;
+      min-width: 40vw;
       padding-right: 30px;
       h2 {
         color: #ff595e;
@@ -206,6 +212,47 @@ export const Project = styled.div`
       p {
         white-space: pre-line;
         opacity: 0.6;
+      }
+
+      .links {
+        margin-top: auto;
+        justify-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        list-style: none;
+        li {
+          margin-top: 20px;
+          & + li {
+            margin-left: 20px;
+          }
+          a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: #2b55d5;
+            border-radius: 4px;
+            padding: 12px 20px;
+
+            &:hover {
+              cursor: pointer;
+              animation: ${buttonHoverAnimation} 0.1s ease-in forwards;
+            }
+            transition: background 1s;
+            &:active {
+              animation: 0;
+              background: #be24fc;
+            }
+
+            span {
+              color: #fff;
+              font-size: 2em;
+            }
+            svg {
+              margin-left: 10px;
+            }
+          }
+        }
       }
     }
     aside {
@@ -222,8 +269,8 @@ export const Project = styled.div`
           object-fit: contain;
 
           /* height: 100%; */
-          max-width: 800px;
-          max-height: 350px;
+          width: 100%;
+          max-height: 450px;
         }
 
         .seeMore {
@@ -264,52 +311,6 @@ export const Project = styled.div`
     }
   }
 
-  footer {
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    .links {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      list-style: none;
-      li {
-        & + li {
-          margin-left: 20px;
-        }
-        a {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-
-          background: #2b55d5;
-          border-radius: 4px;
-          padding: 12px 20px;
-
-          &:hover {
-            cursor: pointer;
-            animation: ${buttonHoverAnimation} 0.1s ease-in forwards;
-          }
-          transition: background 1s;
-          &:active {
-            animation: 0;
-            background: #be24fc;
-          }
-
-          span {
-            color: #fff;
-            font-size: 2em;
-          }
-          svg {
-            margin-left: 10px;
-          }
-        }
-      }
-    }
-  }
   @media (max-width: 1000px) {
     main {
       flex-direction: column;
@@ -322,6 +323,27 @@ export const Project = styled.div`
         p {
           margin-bottom: 20px;
         }
+
+        .links {
+          margin: 0 auto;
+          flex-wrap: wrap;
+          justify-content: center;
+          li {
+            margin: 0 10px 20px;
+            & + li {
+              margin-left: 10px;
+            }
+          }
+          a {
+            padding: 6px 14px;
+            span {
+              font-size: 1.5em;
+            }
+            svg {
+              width: 30px;
+            }
+          }
+        }
       }
     }
     aside {
@@ -329,32 +351,9 @@ export const Project = styled.div`
       button {
         width: 100%;
         img {
-          object-fit: contain;
-          width: 100%;
+          max-width: 80vw;
+          width: 80vw;
           max-height: 400px;
-        }
-      }
-    }
-    footer {
-      flex-direction: column;
-
-      .links {
-        flex-wrap: wrap;
-        justify-content: center;
-        li {
-          margin: 0 10px 20px;
-          & + li {
-            margin-left: 10px;
-          }
-        }
-        a {
-          padding: 6px 14px;
-          span {
-            font-size: 1.5em;
-          }
-          svg {
-            width: 30px;
-          }
         }
       }
     }

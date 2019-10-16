@@ -48,8 +48,7 @@ const griv = {
   description: `
   This is a non-commercial app, built by dantxal during Rocketseat's Bootcamp 8.0.
 
-
-It consumes github's api and allows you to keep track of your favorite git repositories with a simplified UI. Explore the repos you like and find some issues to solve, and feel great doing it.`,
+  It consumes github's api and allows you to keep track of your favorite git repositories with a simplified UI. Explore the repos you like and find some issues to solve, and feel great doing it.`,
   links: {
     githubURL: 'https://github.com/dantxal/meetapp.git',
     website: 'https://griv.netlify.com/',

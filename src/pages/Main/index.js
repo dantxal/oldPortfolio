@@ -75,6 +75,23 @@ export default function Main() {
                 <h2>{project.name}</h2>
                 <strong>{project.scope}</strong>
                 <p>{project.description}</p>
+
+                <ul className="links">
+                  <li>
+                    <a href={project.links.githubURL}>
+                      <span>CODE</span>
+                      <FaGithub size={45} color="#fff" />
+                    </a>
+                  </li>
+                  {project.links.website ? (
+                    <li>
+                      <a href={project.links.website}>
+                        <span>WEBSITE</span>
+                        <FaGlobe size={45} color="#fff" />
+                      </a>
+                    </li>
+                  ) : null}
+                </ul>
               </section>
               <aside>
                 <button
@@ -92,25 +109,6 @@ export default function Main() {
                 </ul>
               </aside>
             </main>
-
-            <footer>
-              <ul className="links">
-                <li>
-                  <a href={project.links.githubURL}>
-                    <span>CODE</span>
-                    <FaGithub size={45} color="#fff" />
-                  </a>
-                </li>
-                {project.links.website ? (
-                  <li>
-                    <a href={project.links.website}>
-                      <span>WEBSITE</span>
-                      <FaGlobe size={45} color="#fff" />
-                    </a>
-                  </li>
-                ) : null}
-              </ul>
-            </footer>
           </div>
         </Project>
       ))}
