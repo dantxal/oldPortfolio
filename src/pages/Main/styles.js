@@ -14,7 +14,27 @@ const chevronAnimation = keyframes`
   100% {
     transform: translate(0, 0);
   }
+`;
 
+const buttonHoverAnimation = keyframes`
+  0% {
+    background: linear-gradient(90deg, #2b55d5 99%, #be24fc 100%);
+  }
+  10% {
+    background: linear-gradient(90deg, #2b55d5 80%, #be24fc 100%);
+  }
+  25% {
+    background: linear-gradient(90deg, #2b55d5 60%, #be24fc 100%);
+  }
+  60% {
+    background: linear-gradient(90deg, #2b55d5 40%, #be24fc 100%);
+  }
+  80% {
+    background: linear-gradient(90deg, #2b55d5 20%, #be24fc 100%);
+  }
+  100% {
+    background: linear-gradient(90deg, #2b55d5 0%, #be24fc 100%);
+  }
 `;
 
 export const About = styled.div`
@@ -30,7 +50,7 @@ export const About = styled.div`
 
   div {
     text-align: center;
-    margin: 0 auto;
+    margin: 5% auto 0;
 
     h1 {
       font-size: 3.5rem;
@@ -40,12 +60,13 @@ export const About = styled.div`
     h2 {
       font-size: 2rem;
     }
-  }
 
-  strong {
-    text-align: center;
-    font-size: 1.3rem;
-    line-height: 1.7;
+    strong {
+      text-align: center;
+      font-size: 1.3rem;
+      line-height: 1.7;
+      opacity: 0.7;
+    }
   }
 
   nav {
@@ -100,12 +121,11 @@ export const About = styled.div`
   @media (max-width: 720px) {
     div {
       padding: 0;
-      margin: 0;
+      margin: 5% 0 0;
       h1 {
         font-size: 2.4rem;
       }
       h2 {
-        margin-top: 10px;
         font-size: 1.4rem;
       }
     }
@@ -141,7 +161,7 @@ export const About = styled.div`
 export const Project = styled.div`
   background: #012;
   width: 100%;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 
   &::before {
     content: '';
@@ -160,11 +180,17 @@ export const Project = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin: 20px 30px;
+    margin: 30px;
     section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
       color: #fff;
+      width: 100%;
+      padding-right: 30px;
       h2 {
-        color: #d64a63;
+        color: #ff595e;
         font-size: 2.8rem;
       }
 
@@ -178,15 +204,37 @@ export const Project = styled.div`
         opacity: 0.6;
       }
     }
-    button {
-      margin-left: 20px;
-      background: none;
-      border: 0;
+    aside {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        background: rgba(0, 0, 0, 0.8);
+        border: 0;
+        img {
+          object-fit: contain;
 
-      img {
-        max-height: 150px;
-        border: 1px solid #222;
-        margin-right: 10px;
+          /* height: 100%; */
+          max-width: 800px;
+          max-height: 350px;
+        }
+
+        .seeMore {
+          height: 10%;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.8);
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          p {
+            color: #bbb;
+            font-size: 1em;
+          }
+        }
       }
     }
   }
@@ -197,16 +245,28 @@ export const Project = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    button {
-      background: #2b55d5;
-      border: 0;
-      border-radius: 4px;
-      padding: 12px 20px;
-
+    a {
       display: flex;
       flex-direction: row;
       align-items: center;
+
+      background: #2b55d5;
+      border-radius: 4px;
+      padding: 12px 20px;
+
+      &:hover {
+        cursor: pointer;
+        animation: ${buttonHoverAnimation} 0.1s ease-in forwards;
+      }
+      transition: background 1s;
+      &:active {
+        animation: 0;
+        background: #be24fc;
+      }
+
+      & + a {
+        margin-left: 30px;
+      }
 
       span {
         color: #fff;
@@ -218,12 +278,12 @@ export const Project = styled.div`
     }
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 1000px) {
     main {
       flex-direction: column;
+      align-items: center;
       section {
-        width: 100%;
-        flex-direction: column;
+        padding: 0;
         h2 {
           font-size: 2.5rem;
         }
@@ -231,16 +291,25 @@ export const Project = styled.div`
           margin-bottom: 20px;
         }
       }
+    }
+    aside {
+      width: 100%;
       button {
+        width: 100%;
         img {
-          max-width: 40%;
+          object-fit: contain;
+          width: 100%;
+          max-height: 400px;
         }
       }
     }
     footer {
-      button {
-        padding: 6px 10px;
-        & + button {
+      justify-content: space-around;
+
+      a {
+        padding: 6px 14px;
+        & + a {
+          margin: 0;
         }
         span {
           font-size: 1.5em;
@@ -250,5 +319,50 @@ export const Project = styled.div`
         }
       }
     }
+  }
+`;
+
+export const CarouselOverlay = styled.div`
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+
+  > button {
+    z-index: 21;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    border: 0;
+    background: #000;
+
+    color: #fff;
+    font-size: 2em;
+  }
+
+  > div {
+    padding: 10vh;
+  }
+
+  .imageWrapper {
+    height: 40vw;
+    max-height: 80vh;
+
+    img {
+      object-fit: contain;
+      max-height: 90%;
+      max-width: 99%;
+      margin: auto;
+    }
+  }
+  .slick-dots li button:before {
+    color: #ddd;
   }
 `;
