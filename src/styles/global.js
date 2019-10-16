@@ -26,7 +26,7 @@ export default createGlobalStyle`
 
 body, input, button {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell,'Helvetica','Segoe UI',  'Open Sans', sans-serif;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.02em;
 
 }
 

@@ -7,57 +7,17 @@ import {
   FaFilePdf,
   FaGlobe,
 } from 'react-icons/fa';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { Container, About, Project, CarouselOverlay } from './styles';
 import chevron from '~/assets/chevron.svg';
-import meetappEdit from '~/assets/meetappEdit.png';
-import meetappSignIn from '~/assets/meetappSignIn.png';
-import meetappDashboardMobile from '~/assets/meetappDashboardMobile.png';
-import meetappSignInMobile from '~/assets/meetappSignInMobile.png';
-import grivReactRepo from '~/assets/griv/grivReactRepo.png';
+
+import projects from '~/assets/projects';
 
 export default function Main() {
-  const projects = [
-    {
-      name: 'MEETAPP',
-      scope: `BACK-END,
-      FRONT-END,
-      MOBILE`,
-      description: `
-      App for scheduling meetups with authentication, date and time selectors, responsive design, auto-mailing system notifications.
-
-      The back-end is built in Nodejs with a Postgres and a Redis databases. It has a mailing system that uses Redis and BeeQueue for a super-fast and scalable api.
-
-      The front-end is built with Reactjs and uses @Rocketseat/unform forform validation and styled components styling.
-
-      The mobile app is built with React Native with styled components styling aswell, it uses different navigation types and accessbility on forms.`,
-      githubURL: 'https://github.com/dantxal/meetapp.git',
-      website: '', // TODO
-      mainColor: '#d64a63',
-      images: [
-        meetappSignIn,
-        meetappEdit,
-        meetappDashboardMobile,
-        meetappSignInMobile,
-      ],
-    },
-    {
-      name: 'GIT-ISSUES VIEWER',
-      scope: 'FRONT-END',
-      description: `
-      This is a non-commercial app, built by dantxal during Rocketseat's Bootcamp 8.0.
-
-
-It consumes github's api and allows you to keep track of your favorite git repositories with a simplified UI. Explore the repos you like and find some issues to solve, and feel great doing it.`,
-      githubURL: 'https://github.com/dantxal/meetapp.git',
-      website: 'https://griv.netlify.com/', // TODO
-      mainColor: '#715c91',
-      images: [grivReactRepo],
-    },
-  ];
   const [carouselImages, setCarouselImages] = useState([]);
   const [showCarousel, setShowCarousel] = useState(false);
 
@@ -109,36 +69,49 @@ It consumes github's api and allows you to keep track of your favorite git repos
 
       {projects.map(project => (
         <Project mainColor={project.mainColor} key={project.name}>
-          <main>
-            <section>
-              <h2>{project.name}</h2>
-              <strong>{project.scope}</strong>
-              <p>{project.description}</p>
-            </section>
-            <aside>
-              <button
-                type="button"
-                onClick={() => openCarousel(project.images)}
-              >
-                <img src={project.images[0]} alt="" />
-                <div className="seeMore">
-                  <p>Click to see more images</p>
-                </div>
-              </button>
-            </aside>
-          </main>
-          <footer>
-            <a href={project.githubURL}>
-              <span>CODE</span>
-              <FaGithub size={45} color="#fff" />
-            </a>
-            {project.website ? (
-              <a href={project.website}>
-                <span>WEBSITE</span>
-                <FaGlobe size={45} color="#fff" />
-              </a>
-            ) : null}
-          </footer>
+          <div className="projectContent">
+            <main>
+              <section>
+                <h2>{project.name}</h2>
+                <strong>{project.scope}</strong>
+                <p>{project.description}</p>
+              </section>
+              <aside>
+                <button
+                  type="button"
+                  onClick={() => openCarousel(project.images)}
+                >
+                  <img src={project.images[0]} alt="" />
+                  <div className="seeMore">
+                    <p>Click to see more images</p>
+                  </div>
+                </button>
+              </aside>
+            </main>
+
+            <footer>
+              <ul className="links">
+                <li>
+                  <a href={project.links.githubURL}>
+                    <span>CODE</span>
+                    <FaGithub size={45} color="#fff" />
+                  </a>
+                </li>
+                {project.links.website ? (
+                  <li>
+                    <a href={project.links.website}>
+                      <span>WEBSITE</span>
+                      <FaGlobe size={45} color="#fff" />
+                    </a>
+                  </li>
+                ) : null}
+              </ul>
+              <ul className="techs">
+                {project.techs &&
+                  project.techs.map(tech => <li key={tech}>{tech}</li>)}
+              </ul>
+            </footer>
+          </div>
         </Project>
       ))}
       {showCarousel && (
@@ -149,11 +122,8 @@ It consumes github's api and allows you to keep track of your favorite git repos
           <div className="carouselContainer">
             <Slider dots>
               {carouselImages &&
-                carouselImages.map(image => (
-                  <div
-                    className="imageWrapper"
-                    key={carouselImages.indexOf(image)}
-                  >
+                carouselImages.map((image, index) => (
+                  <div className="imageWrapper" key={String(index)}>
                     <img src={image} alt="" />
                   </div>
                 ))}

@@ -53,17 +53,17 @@ export const About = styled.div`
     margin: 5% auto 0;
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.5em;
       color: #226aff;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2em;
     }
 
     strong {
       text-align: center;
-      font-size: 1.3rem;
+      font-size: 1.3em;
       line-height: 1.7;
       opacity: 0.7;
     }
@@ -90,7 +90,7 @@ export const About = styled.div`
       span {
         align-self: auto;
         color: #aab8ff;
-        font-size: 1.5rem;
+        font-size: 1.5em;
         padding: 2% 0;
       }
 
@@ -102,7 +102,7 @@ export const About = styled.div`
 
   > button {
     color: #aab8ff;
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: normal;
 
     background: 0;
@@ -123,10 +123,10 @@ export const About = styled.div`
       padding: 0;
       margin: 5% 0 0;
       h1 {
-        font-size: 2.4rem;
+        font-size: 2.4em;
       }
       h2 {
-        font-size: 1.4rem;
+        font-size: 1.4em;
       }
     }
 
@@ -138,7 +138,7 @@ export const About = styled.div`
 
       > button {
         margin: 0;
-        font-size: 1.5rem;
+        font-size: 1.5em;
 
         span {
           text-align: left;
@@ -162,7 +162,11 @@ export const Project = styled.div`
   background: #012;
   width: 100%;
   padding-bottom: 40px;
-
+  align-items: center;
+  .projectContent {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
   &::before {
     content: '';
     display: block;
@@ -191,11 +195,11 @@ export const Project = styled.div`
       padding-right: 30px;
       h2 {
         color: #ff595e;
-        font-size: 2.8rem;
+        font-size: 2.8em;
       }
 
       strong {
-        font-size: 1.2rem;
+        font-size: 1.2em;
         font-weight: 400;
       }
 
@@ -245,39 +249,66 @@ export const Project = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    a {
+    .links {
+      flex: 1;
       display: flex;
       flex-direction: row;
+      justify-content: flex-start;
+      list-style: none;
+      li {
+        & + li {
+          margin-left: 20px;
+        }
+        a {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          background: #2b55d5;
+          border-radius: 4px;
+          padding: 12px 20px;
+
+          &:hover {
+            cursor: pointer;
+            animation: ${buttonHoverAnimation} 0.1s ease-in forwards;
+          }
+          transition: background 1s;
+          &:active {
+            animation: 0;
+            background: #be24fc;
+          }
+
+          span {
+            color: #fff;
+            font-size: 2em;
+          }
+          svg {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .techs {
+      list-style: none;
+      align-self: center;
+      flex: 1;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
 
-      background: #2b55d5;
-      border-radius: 4px;
-      padding: 12px 20px;
-
-      &:hover {
-        cursor: pointer;
-        animation: ${buttonHoverAnimation} 0.1s ease-in forwards;
-      }
-      transition: background 1s;
-      &:active {
-        animation: 0;
-        background: #be24fc;
-      }
-
-      & + a {
-        margin-left: 30px;
-      }
-
-      span {
-        color: #fff;
-        font-size: 2rem;
-      }
-      svg {
-        margin-left: 10px;
+      margin: 0 -10px;
+      li {
+        text-align: center;
+        color: #aab8ff;
+        opacity: 0.7;
+        padding: 2px 4px;
+        border-radius: 4px;
+        margin: 0 5px 5px;
       }
     }
   }
-
   @media (max-width: 1000px) {
     main {
       flex-direction: column;
@@ -285,10 +316,13 @@ export const Project = styled.div`
       section {
         padding: 0;
         h2 {
-          font-size: 2.5rem;
+          font-size: 2.5em;
         }
         p {
           margin-bottom: 20px;
+        }
+        .techs {
+          margin: 0 0 20px;
         }
       }
     }
@@ -304,18 +338,25 @@ export const Project = styled.div`
       }
     }
     footer {
-      justify-content: space-around;
+      flex-direction: column;
 
-      a {
-        padding: 6px 14px;
-        & + a {
-          margin: 0;
+      .links {
+        flex-wrap: wrap;
+        justify-content: center;
+        li {
+          margin: 0 10px 20px;
+          & + li {
+            margin-left: 10px;
+          }
         }
-        span {
-          font-size: 1.5em;
-        }
-        svg {
-          width: 30px;
+        a {
+          padding: 6px 14px;
+          span {
+            font-size: 1.5em;
+          }
+          svg {
+            width: 30px;
+          }
         }
       }
     }
