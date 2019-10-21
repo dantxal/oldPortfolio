@@ -388,8 +388,6 @@ export const CarouselOverlay = styled.div`
     align-items: center;
     justify-content: center;
 
-    color: #fff;
-    font-size: 2em;
     &:hover {
       background: #081828;
     }
@@ -401,13 +399,19 @@ export const CarouselOverlay = styled.div`
 
   .imageWrapper {
     height: 40vw;
-    max-height: 80vh;
+    height: 80vh;
 
     img {
       object-fit: contain;
       max-height: 90%;
       max-width: 99%;
       margin: auto;
+    }
+
+    .caption {
+      color: #aaa;
+      margin: 1.5em auto;
+      text-align: center;
     }
   }
   .slick-dots li button:before {

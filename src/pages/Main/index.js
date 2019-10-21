@@ -16,7 +16,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Container, About, Project, CarouselOverlay } from './styles';
 import chevron from '~/assets/chevron.svg';
 
-import projects from '~/assets/projects';
+import projects from '~/data/projects';
 
 export default function Main() {
   const [carouselImages, setCarouselImages] = useState([]);
@@ -99,7 +99,7 @@ export default function Main() {
                   type="button"
                   onClick={() => openCarousel(project.images)}
                 >
-                  <img src={project.images[0]} alt="" />
+                  <img src={project.images[0].src} alt="" />
                   <div className="seeMore">
                     <p>Click to see more images</p>
                   </div>
@@ -116,14 +116,15 @@ export default function Main() {
       {showCarousel && (
         <CarouselOverlay>
           <button type="button" onClick={() => setShowCarousel(false)}>
-            <FaTimes size={45} color="#fff" />
+            <FaTimes size={45} color="#ddd" />
           </button>
           <div className="carouselContainer">
             <Slider dots>
               {carouselImages &&
                 carouselImages.map((image, index) => (
                   <div className="imageWrapper" key={String(index)}>
-                    <img src={image} alt="" />
+                    <img src={image.src} alt="" />
+                    <p className="caption">{image.caption}</p>
                   </div>
                 ))}
             </Slider>
