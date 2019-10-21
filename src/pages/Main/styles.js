@@ -73,9 +73,9 @@ export const About = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 600px;
     justify-content: center;
-    > button {
+    max-width: 600px;
+    > a {
       min-width: 250px;
       height: 42px;
       margin: 1% 2%;
@@ -156,6 +156,41 @@ export const About = styled.div`
         & + button {
           margin-top: 7px;
         }
+      }
+    }
+  }
+
+  @media (max-height: 500px) {
+    padding: 5vh;
+    > div {
+      margin: 0;
+      > strong {
+        display: none;
+      }
+    }
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      max-width: 80vw;
+      flex-wrap: wrap;
+      justify-content: center;
+      button {
+        margin: 20px;
+        span {
+          text-align: right;
+        }
+      }
+    }
+
+    > button {
+      font-size: 1.4em;
+      font-weight: normal;
+
+      img {
+        margin-top: 10px;
+        animation: ${chevronAnimation} 2s ease-in-out infinite;
+        width: 30px;
       }
     }
   }

@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import { animateScroll } from 'react-scroll';
 import {
@@ -41,22 +44,22 @@ export default function Main() {
         </div>
 
         <nav>
-          <button type="button">
+          <a href="https://github.com/dantxal">
             <span>github.com/dantxal</span>
-            <FaGithub size={24} color="#2169FF" />
-          </button>
-          <button type="button">
+            <FaGithub size={30} color="#2169FF" />
+          </a>
+          <a href="https://www.linkedin.com/in/daniel-teixeira-faria/">
             <span>daniel-teixeira-faria</span>
-            <FaLinkedin size={24} color="#2169FF" />
-          </button>
-          <button type="button">
+            <FaLinkedin size={30} color="#2169FF" />
+          </a>
+          <a style={{ cursor: 'text' }}>
             <span>dantxal@gmail.com</span>
-            <FaEnvelope size={24} color="#2169FF" />
-          </button>
-          <button type="button">
-            <span>Curriculum Vitae</span>
-            <FaFilePdf size={24} color="#2169FF" />
-          </button>
+            <FaEnvelope size={30} color="#2169FF" />
+          </a>
+          <a href="/DanielFaria-resume.pdf">
+            <span>CV/Resume</span>
+            <FaFilePdf size={30} color="#2169FF" />
+          </a>
         </nav>
 
         <button

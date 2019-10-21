@@ -211,7 +211,7 @@ const rocketshoesMobile = {
   If the quantity is not available the user gets notified via a toasty message.
   `,
   links: {
-    githubURL: 'https://github.com/dantxal/rocketshoes.git',
+    githubURL: 'https://github.com/dantxal/rocketshoes-mobile',
   },
 
   images: [
@@ -229,7 +229,7 @@ const rocketshoesMobile = {
 const giv = {
   name: 'GIT-ISSUES VIEWER',
   scope: 'FRONT-END',
-  techs: ['Reactjs', 'Redux', 'Styled-components', 'Reactotron', 'Axios'],
+  techs: ['Reactjs', 'Redux', 'Styled-components', 'Axios'],
   description: `
   This is a study app for consuming third party apis, built during Rocketseat's Bootcamp 8.0.
 
@@ -240,7 +240,7 @@ const giv = {
   This app is being hosted on netlify, if you want to try it click the 'Website' button below.
   `,
   links: {
-    githubURL: 'https://github.com/dantxal/meetapp.git',
+    githubURL: 'https://github.com/dantxal/git-issues-viewer',
     website: 'https://giv.netlify.com/',
   },
   images: [
