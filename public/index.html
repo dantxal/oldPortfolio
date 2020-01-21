@@ -35,7 +35,7 @@
 <!-- End Facebook Pixel Code -->
   </head>
   <body>
-    <button onclick='FB.AppEvents.logEvent("buttonClicked")'>
+    <button onclick='fancyPixel'>
       Click me
     </button>
    
@@ -68,6 +68,16 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-151665859-1');
+</script>
+<script>
+  function fancyPixel () {
+ return fbq('track', 'ViewContent', {
+    value: 1,
+    currency: 'BRL',
+    content_ids: 'apjfoi1234',
+    content_type: 'testing_click',
+  });
+  }
 </script>
 
 
