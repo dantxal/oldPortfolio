@@ -1,6 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FaWhatsapp } from 'react-icons/fa';
+import React from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
 
 import {
   Wrapper,
@@ -14,10 +13,10 @@ import {
   PictureImg,
   Name,
   Status,
-  WhatsBtn,
-} from './styles';
+  WhatsBtn
+} from './styles'
 
-function Whats(props) {
+function Whats () {
   return (
     <Wrapper>
       <Content>
@@ -66,9 +65,7 @@ function Whats(props) {
         </Item>
       </Content>
     </Wrapper>
-  );
+  )
 }
 
-Whats.propTypes = {};
-
-export default Whats;
+export default Whats

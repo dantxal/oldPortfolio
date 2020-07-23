@@ -1,33 +1,34 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
-import { animateScroll } from 'react-scroll';
+
+import React, { useState } from 'react'
+import { animateScroll } from 'react-scroll'
 import {
   FaGithub,
   FaLinkedin,
   FaEnvelope,
   FaFilePdf,
-  FaGlobe,
-  FaTimes,
-} from 'react-icons/fa';
+  FaTimes
+} from 'react-icons/fa'
 
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-import { Container, About, Project, CarouselOverlay } from './styles';
-import chevron from '~/assets/chevron.svg';
+import { Container, About, CarouselOverlay } from './styles'
+import ProjectSection from '~/components/ProjectSection'
+import chevron from '~/assets/chevron.svg'
 
-import projects from '~/data/projects';
+import projects from '~/data/projects'
 
-export default function Main() {
-  const [carouselImages, setCarouselImages] = useState([]);
-  const [showCarousel, setShowCarousel] = useState(false);
+export default function Main () {
+  const [carouselImages, setCarouselImages] = useState([])
+  const [showCarousel, setShowCarousel] = useState(false)
 
-  function openCarousel(images) {
-    setCarouselImages(images);
-    setShowCarousel(true);
+  function handleOpenCarousel (images) {
+    setCarouselImages(images)
+    setShowCarousel(true)
   }
 
   return (
@@ -72,49 +73,10 @@ export default function Main() {
       </About>
 
       {projects.map(project => (
-        <Project mainColor={project.mainColor} key={project.name}>
-          <div className="projectContent">
-            <main>
-              <section>
-                <h2>{project.name}</h2>
-                <strong>{project.scope}</strong>
-                <p>{project.description}</p>
-
-                <ul className="links">
-                  <li>
-                    <a href={project.links.githubURL}>
-                      <span>CODE</span>
-                      <FaGithub size={45} color="#fff" />
-                    </a>
-                  </li>
-                  {project.links.website ? (
-                    <li>
-                      <a href={project.links.website}>
-                        <span>WEBSITE</span>
-                        <FaGlobe size={45} color="#fff" />
-                      </a>
-                    </li>
-                  ) : null}
-                </ul>
-              </section>
-              <aside>
-                <button
-                  type="button"
-                  onClick={() => openCarousel(project.images)}
-                >
-                  <img src={project.images[0].src} alt="" />
-                  <div className="seeMore">
-                    <p>Click to see more images</p>
-                  </div>
-                </button>
-                <ul className="techs">
-                  {project.techs &&
-                    project.techs.map(tech => <li key={tech}>{tech}</li>)}
-                </ul>
-              </aside>
-            </main>
-          </div>
-        </Project>
+        <ProjectSection
+          project={project}
+          handleOpenCarousel={handleOpenCarousel}
+        />
       ))}
       {showCarousel && (
         <CarouselOverlay>
@@ -135,5 +97,5 @@ export default function Main() {
         </CarouselOverlay>
       )}
     </Container>
-  );
+  )
 }
