@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FaWhatsapp } from 'react-icons/fa';
 
 import {
@@ -68,7 +67,5 @@ function Whats(props) {
     </Wrapper>
   );
 }
-
-Whats.propTypes = {};
 
 export default Whats;
